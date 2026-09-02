@@ -14,7 +14,6 @@ var PLUGIN_PERMISSIONS = [
   "network",
   "storage",
   "secrets",
-  "schedules",
   "editor:read",
   "editor:write",
   "ui:commands",

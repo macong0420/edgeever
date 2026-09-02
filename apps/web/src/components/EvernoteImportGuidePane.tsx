@@ -6,9 +6,8 @@ import { WORKSPACE_PAGE_TITLE_CLASSNAME } from "@/lib/workspace-ui";
 import { marked } from "marked";
 import migrationGuideMarkdown from "../../../../docs/evernote-migration-guide.md?raw";
 import migrationGuideEnglishMarkdown from "../../../../docs/evernote-migration-guide.en-US.md?raw";
-import { ExecutionCenterButton } from "@/components/execution/ExecutionCenterButton";
 
-export const EvernoteImportGuidePane = ({ onClose, onOpenExecutionCenter }: { onClose: () => void; onOpenExecutionCenter?: () => void }) => {
+export const EvernoteImportGuidePane = ({ onClose }: { onClose: () => void }) => {
   const { i18n, t } = useTranslation();
   const markdown = i18n.resolvedLanguage === "en-US" ? migrationGuideEnglishMarkdown : migrationGuideMarkdown;
   const htmlContent = useMemo(() => marked.parse(markdown) as string, [markdown]);
@@ -37,7 +36,6 @@ export const EvernoteImportGuidePane = ({ onClose, onOpenExecutionCenter }: { on
             </p>
           </div>
         </div>
-        {onOpenExecutionCenter ? <ExecutionCenterButton onClick={onOpenExecutionCenter} /> : null}
       </header>
 
       <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto px-4 py-4 lg:px-6 lg:py-6">

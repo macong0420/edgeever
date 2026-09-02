@@ -9,7 +9,6 @@ describe("workspace route resolution", () => {
       isPlugins: false,
       isTemplates: false,
       isAiPrompts: false,
-      isExecutionCenter: false,
     });
     expect(resolveWorkspaceRoute("/", "?view=trash").isTrash).toBe(true);
     expect(resolveWorkspaceRoute("/settings", "").isSettings).toBe(true);
@@ -17,7 +16,6 @@ describe("workspace route resolution", () => {
     expect(resolveWorkspaceRoute("/plugins/org.edgeever.example", "").isPlugins).toBe(true);
     expect(resolveWorkspaceRoute("/templates", "").isTemplates).toBe(true);
     expect(resolveWorkspaceRoute("/ai-prompts", "").isAiPrompts).toBe(true);
-    expect(resolveWorkspaceRoute("/execution-center", "").isExecutionCenter).toBe(true);
   });
 
   test("only treats the canonical trash query as trash", () => {
